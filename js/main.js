@@ -25,6 +25,59 @@ for (let i = 0; i < imageList.length; i++) {
 
     // inserisco l'elemento nell'html
     carousel.innerHTML += item;
+
 }
 
+// selezioto gli elementi della mia lista
+let items = document.getElementsByClassName("item");
+
+let activeItem = 0;
+
+// aggiungo classe active all'elemento ativo
+items[activeItem].classList.add("active");
+
 // Al click dell’utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
+
+// seleziono il bottone
+
+const buttonNext = document.getElementById("next");
+
+// gestisco l'interazione dell'utente al click 
+buttonNext.addEventListener("click",
+    function () {
+
+        if (activeItem < imageList.length - 1) {
+            // rimuovo la classe dal precedente
+            items[activeItem].classList.remove("active");
+
+            activeItem++;
+
+            // aggiungo classe active all'elemento ativo
+            items[activeItem].classList.add("active");
+
+        }
+    }
+
+    
+)
+
+const buttonPrev = document.getElementById("prev");
+
+// gestisco l'interazione dell'utente al click 
+buttonPrev.addEventListener("click",
+    function () {
+
+        if (activeItem < imageList.length && activeItem > 0) {
+            // rimuovo la classe dal precedente
+            items[activeItem].classList.remove("active");
+
+            activeItem--;
+
+            // aggiungo classe active all'elemento ativo
+            items[activeItem].classList.add("active");
+
+        }
+        
+    }
+
+)
